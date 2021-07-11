@@ -24,7 +24,9 @@ namespace vmPing.Classes
             {
                 // Starting probe.
                 CancelSource = new CancellationTokenSource();
-                if (Hostname.StartsWith("D/"))
+                if (Hostname.StartsWith("#"))
+                        Type = ProbeType.Comment;
+                else if (Hostname.StartsWith("D/"))
                 {
                     Type = ProbeType.Dns;
                     Hostname = Hostname.Substring(2);
